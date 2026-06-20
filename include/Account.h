@@ -3,7 +3,7 @@
 #include <vector>
 #include <iosfwd>
 
-class Transaction;
+#include "Transaction.h"
 
 class Account {
 protected:
