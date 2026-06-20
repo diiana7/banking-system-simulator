@@ -10,6 +10,7 @@ protected:
 	int id_;
 	std::string owner_;
 	double balance_;
+	std::vector<Transaction> transactions_;
 public:
 	Account(int id, const std::string& owner, double balance);
 	virtual ~Account();
