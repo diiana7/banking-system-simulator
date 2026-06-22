@@ -1,5 +1,6 @@
 #include "Transaction.h"
 #include <ctime>
+#include <iostream>
 
 static std::string getCurrentTime() {
 	time_t now = time(nullptr); //отримання поточного часу
