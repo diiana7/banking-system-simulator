@@ -12,9 +12,17 @@ void Account::validateAmount(double amount) const {
 		throw std::invalid_argument("Wrong amount");
 }
 
+void Account::addTransaction(Transaction::TransactionType type, double amount, const std::string& description) {
+	transactions_.emplace_back(type, amount, description);
+}
+
 void Account::deposit(double amount) {
 	validateAmount(amount);
 	balance_ += amount;
+
+	addTransaction(Transaction::TransactionType::Deposit,
+		amount,
+		"Deposit");
 }
 
 void Account::withdraw(double amount) {
@@ -23,6 +31,10 @@ void Account::withdraw(double amount) {
 		balance_ -= amount;
 	else
 		throw std::runtime_error("Amount is more than your balance");
+
+	addTransaction(Transaction::TransactionType::Withdraw,
+		amount,
+		"Withdraw");
 }
 
 int Account::getId() const {

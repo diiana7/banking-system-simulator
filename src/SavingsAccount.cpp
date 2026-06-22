@@ -11,6 +11,10 @@ SavingsAccount::SavingsAccount(int id, const std::string& owner, double balance,
 void SavingsAccount::applyInterest() {
 	double interest = balance_ * interestRate_ / 100;
 	balance_ += interest;
+
+	addTransaction(Transaction::TransactionType::Deposit,
+		interest,
+		"Interest applied");
 }
 
 double SavingsAccount::getInterestRate() const {

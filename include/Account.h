@@ -11,6 +11,10 @@ protected:
 	std::string owner_;
 	double balance_;
 	std::vector<Transaction> transactions_;
+
+	void validateAmount(double amount) const;
+
+	void addTransaction(Transaction::TransactionType type, double amount, const std::string& description);
 public:
 	Account(int id, const std::string& owner, double balance);
 	virtual ~Account();
@@ -26,6 +30,5 @@ public:
 
 	virtual void printInfo() const;
 	friend std::ostream& operator<<(std::ostream& os, const Account& acc);
-private:
-	void validateAmount(double amount) const;
+
 };
