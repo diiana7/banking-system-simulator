@@ -57,6 +57,7 @@ double CreditAccount::getDebt() const {
 }
 
 void CreditAccount::printInfo() const {
+	std::cout << "Type: CreditAccount" << "\n";
 	Account::printInfo();
 	std::cout << "Credit limit: " << creditLimit_ << "\n";
 	std::cout << "Debt: " << debt_ << "\n";
