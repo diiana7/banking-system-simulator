@@ -1,4 +1,5 @@
 #include "CheckingAccount.h"
+#include "BankException.h"
 #include <iostream>
 #include <stdexcept>
 
@@ -12,7 +13,7 @@ void CheckingAccount::withdraw(double amount) {
 	validateAmount(amount);
 
 	if (amount > balance_ + overdraftLimit_)
-		throw std::runtime_error("Overdraft limit exceeded");
+		throw BankException("Overdraft limit exceeded");
 	else
 		balance_ -= amount;
 

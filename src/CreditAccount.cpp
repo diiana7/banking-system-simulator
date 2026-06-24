@@ -1,4 +1,5 @@
 #include "CreditAccount.h"
+#include "BankException.h"
 #include <stdexcept>
 #include <iostream>
 
@@ -35,7 +36,7 @@ void CreditAccount::withdraw(double amount) {
 	double available = balance_ + (creditLimit_ - debt_);
 
 	if (amount > available)
-		throw std::runtime_error("Exceeding credit limit");
+		throw BankException("Exceeding credit limit");
 	
 	if (amount <= balance_)
 		balance_ -= amount;

@@ -1,4 +1,5 @@
 #include "Account.h"
+#include "BankException.h"
 #include <stdexcept>
 #include <iostream>
 
@@ -30,7 +31,7 @@ void Account::withdraw(double amount) {
 	if (balance_ >= amount)
 		balance_ -= amount;
 	else
-		throw std::runtime_error("Amount is more than your balance");
+		throw BankException("Amount is more than your balance");
 
 	addTransaction(Transaction::TransactionType::Withdraw,
 		amount,
