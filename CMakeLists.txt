@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS 
+    "src/*.cpp"
+)
 
-add_executable(banking-system-simulator ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES})
