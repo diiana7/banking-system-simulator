@@ -101,9 +101,9 @@ banking-system-simulator/
 
 ### Transaction History
 
-![Transaction History (example 1)](images/history1)
+![Transaction History (example 1)](images/history1.png)
 
-![Transaction History (example 2)](images/history2)
+![Transaction History (example 2)](images/history2.png)
 
 ### Print All Accounts
 
