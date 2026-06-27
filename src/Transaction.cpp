@@ -6,7 +6,10 @@ static std::string getCurrentTime() {
 	time_t now = time(nullptr); //отримання поточного часу
 	char buffer[26];
 	ctime_s(buffer, sizeof(buffer), &now); //перетворення в текст
-	return std::string(buffer);
+	std::string result(buffer);
+	if (!result.empty() && result.back() == '\n')// видаляємо \n з кінця
+		result.pop_back();
+	return result;
 }
 
 static std::string typeToString(Transaction::TransactionType type) {
