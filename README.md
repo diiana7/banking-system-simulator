@@ -1,5 +1,7 @@
 # Banking System Simulator
 
+## Description
+
 A console-based banking system simulator written in C++.
 
 The project demonstrates object-oriented design principles and modern C++ (C++17) features through a banking system that supports multiple account types, transactions, and report generation.
@@ -81,7 +83,28 @@ banking-system-simulator/
 
 ## How to use
 
-Run the program and interact with the menu.
+## How to Use Run the application and interact with the console menu. Follow on-screen instructions to perform banking operations such as creating accounts, deposits, withdrawals, and transfers.
  
-
 ## Screenshots
+
+### Main Menu
+
+![Main Menu](images/menu.png)
+
+### Create Account
+
+![Create Account](images/create-account.png)
+
+### Transfer
+
+![Transfer](images/transfer.png)
+
+### Transaction History
+
+![Transaction History (example 1)](images/history1)
+
+![Transaction History (example 2)](images/history2)
+
+### Print All Accounts
+
+![All Accounts](images/all-accounts.png)
