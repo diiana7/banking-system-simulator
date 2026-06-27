@@ -7,6 +7,7 @@ int main() {
     Bank acc;
 
     while (true) {
+        std::cout << "\n";
         std::cout << "1. Create account" << "\n" << "2. Deposit" << "\n" << "3. Withdraw" << "\n" << "4. Transfer" << "\n"
             << "5. Account information" << "\n" << "6. Transaction history" << "\n" << "7. Print all accounts" << "\n"
             << "8. Account count" << "\n" << "9. Exit" << "\n";
@@ -160,7 +161,7 @@ int main() {
                 
             case 8:{
                 try {
-                    std::cout << "Account count: " << acc.getAccountCount();
+                    std::cout << "Account count: " << acc.getAccountCount() << "\n";
                 }
                 catch (const BankException& e) {
                     std::cout << "Error: " << e.what() << "\n";
