@@ -1,5 +1,7 @@
 # Banking System Simulator
 
+## Description
+
 A console-based banking system simulator written in C++.
 
 The project demonstrates object-oriented design principles and modern C++ (C++17) features through a banking system that supports multiple account types, transactions, and report generation.
@@ -34,6 +36,109 @@ The project demonstrates object-oriented design principles and modern C++ (C++17
 - **Modern C++ (C++17)** — `std::make_unique`, `enum class`, range-based loops
 
 ## UML Diagram
+
+```mermaid
+classDiagram
+ class Account{
+  #id_ : int
+  #owner_ : string
+  #balance_ : double
+  #transactions_ : vector~Transaction~
+
+  #validateAmount(amount : double) void
+  #addTransaction(type : TransactionType, amount : double, description : string) void
+
+  +deposit(amount : double) void
+  +withdraw(amount : double) void
+  +printInfo() void
+ }
+
+ class SavingsAccount{
+  -interestRate_ : double
+
+  +applyInterest() void
+  +getInterestRate() double
+  +printInfo() void
+ }
+
+ class CheckingAccount{
+  -overdraftLimit_ : double
+
+  +withdraw(amount : double) void
+  +getOverdraftLimit() double
+  +getAvailableFunds() double
+  +printInfo() void
+ }
+
+ class CreditAccount{
+  -creditLimit_ : double
+  -debt_ : double
+
+  +deposit(amount : double) void
+  +withdraw(amount : double) void
+  +getCreditLimit() double
+  +getDebt() double
+  +printInfo() void
+ }
+
+ class TransactionType{
+  <<enumeration>>
+  Deposit
+  Withdraw
+  Transfer
+ }
+
+ class Transaction{
+  -type_ : TransactionType
+  -amount_ : double
+  -date_ : string
+  -description_ : string
+
+  +getTransactionType() TransactionType
+  +getAmount() double
+  +getDate() string
+  +getDescription() string
+ }
+
+ class Bank {
+  -accounts_ : unordered_map
+  -nextId_ : int
+  -findAccount(id : int) Account*
+
+  +createAccount(type : int, owner : string, balance : double, extra : double) int
+  +deposit(id : int, amount : double) void
+  +withdraw(id : int, amount : double) void
+  +transfer(fromId : int, toId : int, amount : double) void
+  +printTransactionHistory(id : int) void
+  +getAccountCount() size_t
+ }
+
+ class BankException {
+  +BankException(message : string)
+ }
+
+ class Report~T~ {
+  -items_ : vector~T~
+
+  +Report(items : vector~T~)
+  +printAll() void
+  +filterBy(predicate : function) vector~T~
+  +getCount() size_t
+ }
+
+Account <|-- SavingsAccount 
+Account <|-- CheckingAccount
+Account <|-- CreditAccount
+runtime_error <|-- BankException
+
+Bank "1" *-- "0..*" Account : manages accounts
+Account "1" *-- "0..*" Transaction : contains history
+
+Transaction --> TransactionType : uses
+
+Bank ..> Report~Transaction~ : creates for printing history
+
+```
 
 ## Installation
 
@@ -81,7 +186,28 @@ banking-system-simulator/
 
 ## How to use
 
-Run the program and interact with the menu.
+## How to Use Run the application and interact with the console menu. Follow on-screen instructions to perform banking operations such as creating accounts, deposits, withdrawals, and transfers.
  
-
 ## Screenshots
+
+### Main Menu
+
+![Main Menu](images/menu.png)
+
+### Create Account
+
+![Create Account](images/create-account.png)
+
+### Transfer
+
+![Transfer](images/transfer.png)
+
+### Transaction History
+
+![Transaction History (example 1)](images/history1.png)
+
+![Transaction History (example 2)](images/history2.png)
+
+### Print All Accounts
+
+![All Accounts](images/all-accounts.png)
