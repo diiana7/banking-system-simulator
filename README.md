@@ -186,7 +186,7 @@ banking-system-simulator/
 
 ## How to use
 
-## How to Use Run the application and interact with the console menu. Follow on-screen instructions to perform banking operations such as creating accounts, deposits, withdrawals, and transfers.
+Run the application and interact with the console menu. Follow on-screen instructions to perform banking operations such as creating accounts, deposits, withdrawals, and transfers.
  
 ## Screenshots
 
